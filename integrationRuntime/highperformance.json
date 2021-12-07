@@ -1,0 +1,17 @@
+{
+	"name": "highperformance",
+	"properties": {
+		"type": "Managed",
+		"typeProperties": {
+			"computeProperties": {
+				"location": "AutoResolve",
+				"dataFlowProperties": {
+					"computeType": "General",
+					"coreCount": 48,
+					"timeToLive": 5,
+					"cleanup": false
+				}
+			}
+		}
+	}
+}
