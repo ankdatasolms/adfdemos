@@ -1,0 +1,24 @@
+{
+	"name": "radio data flow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"linkedService": {
+						"referenceName": "radiojson",
+						"type": "LinkedServiceReference"
+					},
+					"name": "radiodatasource"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "Select1"
+				}
+			],
+			"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\tformat: 'json',\n\tfileSystem: 'sampledata',\n\tfileName: 'small_radio_json.json',\n\tdocumentForm: 'documentPerLine') ~> radiodatasource\nradiodatasource select(skipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> Select1"
+		}
+	}
+}
